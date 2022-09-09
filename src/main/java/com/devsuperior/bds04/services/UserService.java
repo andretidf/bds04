@@ -7,13 +7,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.devsuperior.bds04.controllers.UserRepository;
 import com.devsuperior.bds04.dto.UserDTO;
 import com.devsuperior.bds04.entities.User;
+import com.devsuperior.bds04.repositories.UserRepository;
 
 
 @Service

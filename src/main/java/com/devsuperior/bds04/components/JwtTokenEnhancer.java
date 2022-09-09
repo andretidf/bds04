@@ -10,8 +10,8 @@ import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.stereotype.Component;
 
-import com.devsuperior.bds04.controllers.UserRepository;
 import com.devsuperior.bds04.entities.User;
+import com.devsuperior.bds04.repositories.UserRepository;
 
 
 @Component
