@@ -24,7 +24,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
 	
 	private static final String[] PUBLIC = {"/oauth/token", "/h2-console/**"};
 	
-	private static final String[] CLIENT = { "/events/**"};
+	private static final String[] CLIENT_OR_ADMIN = { "/events/**"};
+	
+	private static final String[] ADMIN = { "/cities/**"};
 
 	@Override
 	public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
@@ -42,8 +44,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
 		http.authorizeRequests()
 		.antMatchers(PUBLIC).permitAll()
 		.antMatchers(HttpMethod.GET).permitAll()
-		.antMatchers(HttpMethod.POST, CLIENT).hasAnyRole("CLIENT", "ADMIN")
-		.antMatchers().hasRole("ADMIN")
+		.antMatchers(HttpMethod.POST, CLIENT_OR_ADMIN).hasAnyRole("CLIENT", "ADMIN")
+		.antMatchers(ADMIN).hasAnyRole("ADMIN")
 		.anyRequest().authenticated();
 		
 	}
